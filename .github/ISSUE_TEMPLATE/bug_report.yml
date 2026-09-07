@@ -1,0 +1,68 @@
+name: Bug report
+description: A route was wrong, missing, or the CLI failed
+title: 'bug: '
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not paste API keys, tokens, or unredacted usage output.
+        `omp-route` redacts what it prints, but pasted terminal scrollback may contain more.
+
+  - type: dropdown
+    id: command
+    attributes:
+      label: Command
+      description: Which subcommand misbehaved?
+      options: [scan, plan, explain, run, other]
+    validations:
+      required: true
+
+  - type: textarea
+    id: invocation
+    attributes:
+      label: Exact invocation
+      description: The full command line, including `--match`, `--prefer`, and `--profile`.
+      render: console
+      placeholder: $ omp-route plan --match fable --prefer cursor,openrouter
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: Which route should have been generated, in which position, and why?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead
+      description: Paste the output. `explain` output is the most useful, since it shows ordering reasons.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      value: |
+        - omp-route: (commit or version)
+        - OMP: (output of `omp --version`)
+        - Node: (output of `node --version`)
+        - OS:
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked that the two providers really expose the same model, not merely a similar name.
+          required: true
+        - label: My paste contains no credentials.
+          required: true

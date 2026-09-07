@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  release-please:
+    name: prepare release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      # Opens (and keeps updating) a release PR that bumps package.json and
+      # writes CHANGELOG.md from conventional commits. Merging the PR tags the
+      # release. Commits without a feat:/fix:/perf: prefix are simply ignored.
+      - uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json

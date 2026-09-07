@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="298" viewBox="0 0 840 298" role="img" aria-label="Terminal recording of omp-route explain producing a ranked fallback chain">
+  <title>omp-route explain — ranked fallback chain</title>
+  <defs>
+    <style>
+      text{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}
+      @keyframes p0{0%,1.786%{opacity:0}2.929%,92%{opacity:1}98%,100%{opacity:0}}
+      @keyframes type{0%,2.857%{transform:translateX(0)}15.000%,92%{transform:translateX(709.2px)}98%,100%{transform:translateX(0)}}
+      @keyframes l0{0%,16.429%{opacity:0}17.571%,92%{opacity:1}98%,100%{opacity:0}}
+      @keyframes l2{0%,20.000%{opacity:0}21.143%,92%{opacity:1}98%,100%{opacity:0}}
+      @keyframes l3{0%,23.571%{opacity:0}24.714%,92%{opacity:1}98%,100%{opacity:0}}
+      @keyframes l4{0%,27.143%{opacity:0}28.286%,92%{opacity:1}98%,100%{opacity:0}}
+      @keyframes l5{0%,30.714%{opacity:0}31.857%,92%{opacity:1}98%,100%{opacity:0}}
+      @keyframes p1{0%,39.286%{opacity:0}40.429%,92%{opacity:1}98%,100%{opacity:0}}
+      @keyframes blink{0%,39.286%{opacity:0}40.000%,92%{opacity:1}92.5%,100%{opacity:0}}
+      @keyframes flash{0%,49%{opacity:1}50%,100%{opacity:0}}
+      .p0{opacity:0;animation:p0 14s steps(1,end) infinite}
+      .type{animation:type 14s steps(83,end) infinite}
+      .l0{opacity:0;animation:l0 14s steps(1,end) infinite}
+      .l2{opacity:0;animation:l2 14s steps(1,end) infinite}
+      .l3{opacity:0;animation:l3 14s steps(1,end) infinite}
+      .l4{opacity:0;animation:l4 14s steps(1,end) infinite}
+      .l5{opacity:0;animation:l5 14s steps(1,end) infinite}
+      .p1{opacity:0;animation:p1 14s steps(1,end) infinite}
+      .cursor{opacity:0;animation:blink 14s steps(1,end) infinite,flash 1.06s steps(1,end) infinite}
+      @media (prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none!important}.type{display:none}}
+    </style>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00E676" stop-opacity="0.55" />
+      <stop offset="50%" stop-color="#00E5FF" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0.55" />
+    </linearGradient>
+  </defs>
+
+  <rect x="0.75" y="0.75" width="838.5" height="296.5" rx="10" fill="#0D1117" stroke="url(#edge)" stroke-width="1.5" />
+  <path d="M0.75 10.75a10 10 0 0 1 10-10h818.5a10 10 0 0 1 10 10V38H0.75z" fill="#161B22" />
+  <line x1="0.75" y1="38" x2="839.25" y2="38" stroke="#30363D" />
+  <circle cx="22" cy="19.5" r="5.5" fill="#FF5F57" />
+  <circle cx="41" cy="19.5" r="5.5" fill="#FEBC2E" />
+  <circle cx="60" cy="19.5" r="5.5" fill="#28C840" />
+  <text x="420" y="24" text-anchor="middle" font-size="12" fill="#7D8590">omp-route — routing plan compiler</text>
+
+  <text class="p0" x="22" y="74" font-size="14"><tspan fill="#00E676" font-weight="700">$ </tspan><tspan fill="#E6EDF3">omp-route explain cctq-claude/claude-fable-5 --prefer cursor,cctq-claude,openrouter</tspan></text>
+  <rect class="type" x="38.8" y="60" width="713.2" height="22" fill="#0D1117" />
+  <text class="l0" x="22" y="104.8" font-size="14" xml:space="preserve"><tspan fill="#7D8590">Generated 1 fallback route.</tspan></text>
+  <text class="l2" x="22" y="148.8" font-size="14" xml:space="preserve"><tspan fill="#7D8590">source: </tspan><tspan fill="#E6EDF3">cctq-claude/claude-fable-5</tspan><tspan fill="#A78BFA"> (claude-fable@5)</tspan></text>
+  <text class="l3" x="22" y="170.8" font-size="14" xml:space="preserve"><tspan fill="#F5A524">  1. </tspan><tspan fill="#00E5FF">cursor/claude-fable-5</tspan><tspan fill="#7D8590"> — preference #1, 100% quota remaining</tspan></text>
+  <text class="l4" x="22" y="192.8" font-size="14" xml:space="preserve"><tspan fill="#F5A524">  2. </tspan><tspan fill="#00E5FF">openrouter/anthropic/claude-fable-5</tspan><tspan fill="#7D8590"> — preference #3, quota unknown</tspan></text>
+  <text class="l5" x="22" y="214.8" font-size="14" xml:space="preserve"><tspan fill="#F5A524">  3. </tspan><tspan fill="#00E5FF">glm-fireworks/anthropic/claude-fable-5</tspan><tspan fill="#7D8590"> — quota unknown</tspan></text>
+  <text class="p1" x="22" y="247.8" font-size="14" font-weight="700" fill="#00E676">$</text>
+  <rect class="cursor" x="38.8" y="235.8" width="8.4" height="14" fill="#00E676" />
+</svg>

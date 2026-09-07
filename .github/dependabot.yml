@@ -1,0 +1,17 @@
+version: 2
+
+updates:
+  # The package itself has zero runtime dependencies on purpose, so the only
+  # supply chain worth watching is the one inside CI.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: 'chore(deps)'
+    labels:
+      - dependencies
+    groups:
+      actions:
+        patterns:
+          - '*'

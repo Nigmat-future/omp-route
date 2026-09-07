@@ -1,0 +1,50 @@
+name: Feature request
+description: Propose a change to routing policy, output, or the CLI surface
+title: 'feat: '
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The routing policy is deliberately conservative: a missed route is safer than
+        silently replacing a model with the wrong one. Proposals that widen matching
+        should say how they stay on the safe side of that line.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The situation today
+      description: What does `omp-route` do now, and where does it leave you stuck?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Sketch the output or the flag. Concrete beats abstract.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - canonicalization (which selectors are the same model)
+        - compatibility gates (reasoning, context, modalities)
+        - ranking (quota tiers, preference order)
+        - overlay generation
+        - CLI surface / output format
+        - documentation
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risk of a wrong route
+      description: If this change matched too eagerly, what would break for a user?
+    validations:
+      required: true

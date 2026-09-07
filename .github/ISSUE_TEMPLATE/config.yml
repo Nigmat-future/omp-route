@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Oh My Pi
+    url: https://github.com/can1357/oh-my-pi
+    about: Retries, cooldowns, and runtime fallback belong to OMP — report execution behavior there.
+  - name: Security report
+    url: https://github.com/Nigmat-future/omp-route/security/advisories/new
+    about: Report a vulnerability privately instead of opening a public issue.

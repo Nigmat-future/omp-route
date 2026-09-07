@@ -19,7 +19,8 @@
   <a href="https://github.com/Nigmat-future/omp-route/blob/main/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-00E676?style=for-the-badge&labelColor=0D1117"></a>
   <img alt="Node.js 22 or newer" src="https://img.shields.io/badge/node-%E2%89%A5%2022-00E5FF?style=for-the-badge&labelColor=0D1117&logo=node.js&logoColor=00E5FF">
   <img alt="Zero runtime dependencies" src="https://img.shields.io/badge/deps-0-00E676?style=for-the-badge&labelColor=0D1117">
-  <img alt="Tested with node:test" src="https://img.shields.io/badge/tests-node%3Atest-A78BFA?style=for-the-badge&labelColor=0D1117">
+  <a href="https://github.com/Nigmat-future/omp-route/actions/workflows/ci.yml"><img alt="CI status" src="https://img.shields.io/github/actions/workflow/status/Nigmat-future/omp-route/ci.yml?branch=main&style=for-the-badge&labelColor=0D1117&color=00E676&label=ci"></a>
+  <a href="https://github.com/Nigmat-future/omp-route/actions/workflows/codeql.yml"><img alt="CodeQL status" src="https://img.shields.io/github/actions/workflow/status/Nigmat-future/omp-route/codeql.yml?branch=main&style=for-the-badge&labelColor=0D1117&color=A78BFA&label=codeql"></a>
   <img alt="Proof of concept" src="https://img.shields.io/badge/status-proof__of__concept-F5A524?style=for-the-badge&labelColor=0D1117">
 </p>
 
@@ -34,16 +35,28 @@
 
 <br />
 
+<p align="center">
+  <img alt="Terminal recording: omp-route explain ranks three providers into one fallback chain" src="assets/demo.svg" width="840">
+</p>
+
+<details>
+<summary><b>&nbsp;⌗&nbsp;&nbsp;Same transcript as copyable text</b></summary>
+<br />
+
 ```console
-$ omp-route explain cctq-claude/claude-fable-5
+$ omp-route explain cctq-claude/claude-fable-5 --prefer cursor,cctq-claude,openrouter
 
 Generated 1 fallback route.
 
 source: cctq-claude/claude-fable-5 (claude-fable@5)
-  1. cursor/claude-fable-5-high — preference #1, 100% quota remaining, profile high
-  2. glm-fireworks/anthropic/claude-fable-5 — preference #3, quota unknown
-  3. openrouter/anthropic/claude-fable-5 — preference #5, quota unknown
+  1. cursor/claude-fable-5 — preference #1, 100% quota remaining
+  2. openrouter/anthropic/claude-fable-5 — preference #3, quota unknown
+  3. glm-fireworks/anthropic/claude-fable-5 — quota unknown
 ```
+
+Recorded against a stub OMP that speaks the same JSON contract as the real CLI; regenerate the animation with `node tools/make-demo-svg.mjs`.
+
+</details>
 
 > [!NOTE]
 > **OMP owns execution. `omp-route` only decides the order.**
@@ -251,6 +264,8 @@ For `run`, a passthrough `--model` value is also used as the route scope when `-
 | **`bounded`** | Unscoped plans above 200 routes are refused unless the user passes `--all`. |
 | **`no-shell`** | OMP is spawned without a shell and receives passthrough arguments as an array. |
 
+The full threat model, including what is explicitly out of scope, lives in [SECURITY.md](SECURITY.md). Vulnerabilities go through [private advisories](https://github.com/Nigmat-future/omp-route/security/advisories/new), not public issues.
+
 > [!IMPORTANT]
 > `omp-route` is a proof of concept. Review `plan` output before relying on a new model family in unattended workloads.
 
@@ -278,7 +293,16 @@ $ npm test
 
 The suite uses Node's built-in test runner and covers canonicalization, compatibility, quota ranking, CLI behavior, overlay generation, argument forwarding, degraded usage reporting, and malformed discovery output. There are no runtime dependencies.
 
-Issues and focused pull requests are welcome.
+Every push runs the suite on Node 22 and 24, across Linux and Windows, plus a CodeQL analysis and a guard that fails the build if a runtime dependency is ever added.
+
+| Path | What lives there |
+| --- | --- |
+| `src/core.js` | Canonicalization, compatibility gates, ranking, overlay shape |
+| `src/omp.js` | The only place that spawns OMP, and the output redaction |
+| `src/cli.js` | Argument parsing, output formatting, the route guard |
+| `tools/make-demo-svg.mjs` | Regenerates the animated terminal in the README |
+
+Issues and focused pull requests are welcome — please use a conventional commit prefix (`feat:`, `fix:`, `docs:`) in the PR title, since releases and the changelog are generated from them.
 
 <br />
 
