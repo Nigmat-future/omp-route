@@ -1,0 +1,34 @@
+{
+  "name": "omp-route",
+  "version": "0.1.0",
+  "description": "Generate safe provider fallback chains for Oh My Pi",
+  "author": "Nigmat Rahim",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nigmat-future/omp-route.git"
+  },
+  "bugs": "https://github.com/Nigmat-future/omp-route/issues",
+  "homepage": "https://github.com/Nigmat-future/omp-route#readme",
+  "type": "module",
+  "bin": {
+    "omp-route": "bin/omp-route.js"
+  },
+  "scripts": {
+    "start": "node bin/omp-route.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "keywords": [
+    "oh-my-pi",
+    "llm",
+    "provider",
+    "fallback"
+  ],
+  "license": "MIT"
+}
